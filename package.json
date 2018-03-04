@@ -1,0 +1,17 @@
+{
+  "name": "storybyeveryone",
+  "version": "1.0.0",
+  "description": "website for storybyeveryone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nuno Neves",
+  "license": "UNLICENCED",
+  "devDependencies": {
+    "axios": "^0.18.0"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.2.1"
+  }
+}
