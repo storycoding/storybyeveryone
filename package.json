@@ -9,9 +9,11 @@
   "author": "Nuno Neves",
   "license": "UNLICENCED",
   "devDependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "knex": "^0.14.4"
   },
   "dependencies": {
-    "@sendgrid/mail": "^6.2.1"
+    "@sendgrid/mail": "^6.2.1",
+    "pg": "^7.4.1"
   }
 }

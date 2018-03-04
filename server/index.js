@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const queries = require('../database/queries');
 
 let homepage;
 let css;
@@ -10,7 +11,6 @@ let script;
 // https://github.com/sendgrid/sendgrid-nodejs
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 
 const setup = async function() {
 	await fs.readFile("../dist/index.html", "utf-8", function(err, data){
@@ -73,7 +73,7 @@ const requestHandler = (request, response) => {
 		console.log("request.name:" + request.headers.name);
 		console.log("request.email:" + request.headers.email);
 	
-		console.log("REQUEST:", request);
+		//console.log("REQUEST:", request);
 
 		let name = request.headers.name;
 		let email = request.headers.email;
@@ -94,6 +94,7 @@ const requestHandler = (request, response) => {
 
 		sgMail.send(msg);
 		
+		queries.insert(name, email);
 
 		response.writeHead(200, {'Content-type' : 'text/plain'});
     response.write("we got your request");

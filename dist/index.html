@@ -6,6 +6,7 @@
   	<link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
   	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../database/queries.js"></script>
   </head>
   
   <body>
@@ -24,10 +25,10 @@
       
       <div class="centered" id="contact">
         <div>
-          <input type="text" placeholder="name" id="name">
+          <input type="text" placeholder="name" id="name" maxlength="20">
         </div>
         <div>
-          <input type="text" placeholder="e-mail" id="email">
+          <input type="text" placeholder="e-mail" id="email" maxlength="20">
         </div> 
         <button id="signup">join the newsletter</button>
       </div>
