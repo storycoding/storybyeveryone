@@ -14,7 +14,8 @@
   "author": "Nuno Neves",
   "license": "UNLICENCED",
   "devDependencies": {
-    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
     "knex": "^0.14.4"
   },
   "dependencies": {
