@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "postinstall": "node server/index.js"
   },
   "author": "Nuno Neves",
   "license": "UNLICENCED",
