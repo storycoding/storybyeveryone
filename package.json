@@ -4,10 +4,12 @@
   "description": "website for storybyeveryone",
   "main": "index.js",
   "engines": {
-    "node": "9.3.0"
+    "node": "9.3.0",
+    "npm": "5.6.0"
   },
   "scripts": {
     "start": "node /server/index.js",
+    "preinstall":"psql -f database/schema.sql",
     "postinstall": "node /server/index.js"
   },
   "author": "Nuno Neves",
