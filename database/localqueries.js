@@ -1,10 +1,10 @@
 const knex = require('knex')({
     client: 'pg',
     connection: {
-      host: process.env.HOST, 
-      user: process.env.USER, 
-      password: process.env.PASSWORD, 
-      database: process.env.DATABASE
+      host: '127.0.0.1', 
+      user: 'macbookair', 
+      password: '', 
+      database: 'sbe'
     }
   });
 
