@@ -8,8 +8,8 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "node /server/index.js",
-    "postinstall": "node /server/index.js"
+    "start": "node server/index.js",
+    "postinstall": "node server/index.js"
   },
   "author": "Nuno Neves",
   "license": "UNLICENCED",
