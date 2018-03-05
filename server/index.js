@@ -53,7 +53,7 @@ const setup = async function() {
 
 setup();
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 const requestHandler = (request, response) => {
 
