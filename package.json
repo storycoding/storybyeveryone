@@ -9,7 +9,7 @@
   "author": "Nuno Neves",
   "license": "UNLICENCED",
   "devDependencies": {
-    "axios": "^0.18.0",
+    "express": "^4.16.2",
     "knex": "^0.14.4"
   },
   "dependencies": {

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html>
+
   <head>
     <title>Story by Everyone</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   	<link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
-  	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../database/queries.js"></script>
   </head>
   
   <body>
@@ -22,6 +22,26 @@
         <p>If you'd like to see this project when it's ready, fill in your contact details below and you'll be notified when the official launch is about.</p>
       </div>
       
+
+    <div class="centered" id="contact">
+      <form action="/signup" method="post">
+        <div>
+          <label for="say">What greeting do you want to say?</label>
+          <input name="name" id="name" value="Dude">
+        </div>
+
+        <div>
+          <label for="email">Who do you want to say it to?</label>
+          <input name="email" value="dude@gmail.com">
+        </div>
+
+        <div>
+          <button>Send my greetings</button>
+        </div>
+      </form>
+    </div>
+
+
       
       <div class="centered" id="contact">
         <div>

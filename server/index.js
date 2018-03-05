@@ -1,18 +1,17 @@
 const http = require('http');
 const fs = require('fs');
 const queries = require('../database/queries');
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 let homepage;
 let css;
 let favicon;
 let script;
 
-// using SendGrid's v3 Node.js Library
-// https://github.com/sendgrid/sendgrid-nodejs
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 const setup = async function() {
+
 	await fs.readFile("../dist/index.html", "utf-8", function(err, data){
 	  if(err) {
 	  	console.error("homepage failed to deliver, error: " + err);
@@ -66,39 +65,67 @@ const requestHandler = (request, response) => {
 
 	else if (request.url === "/signup" && request.method === "POST") {
 
-		
-		console.log("url: " + request.url);
-		console.log("method:" + request.method);
-		
-		console.log("request.name:" + request.headers.name);
-		console.log("request.email:" + request.headers.email);
-	
-		//console.log("REQUEST:", request);
 
-		let name = request.headers.name;
-		let email = request.headers.email;
+    var body = '';
 
-		const msg = {
-		  to: email,
-		  from: 'hello@storybyeveryone.com',
-		  subject: 'Welcome to the story by everyone, ' + name + '.',
-		  text: 'this is the text',
-		  html: `<div>
-		  <p>Hello, ${name}</p>
-		  <p>Thank you for joining the story by everyone.</p>
-		  <p>As I treasure your time and attention, I will send you <strong>only one</strong> more email to let you know when the full website is launched.</p>
-		  <p>Looking forward to sharing my stories with you,</p>
-		  <p>Nuno</p>
-		  </div>`,
-		};
+    request.on('data', function (data) {
+        body += data;
+    });
 
-		sgMail.send(msg);
-		
-		queries.insert(name, email);
+    request.on('end', function () {
 
-		response.writeHead(200, {'Content-type' : 'text/plain'});
-    response.write("we got your request");
-    response.end();
+    	// hacky, but fast parser
+    	const bodyparser = function(string) {
+  			let arr = string.split("=").slice(1); // parsing the form content
+
+  			if(arr.length > 2) {
+  				response.statusCode = 404;
+		  		response.statusMessage = 'Invalid form input';
+		  		response.end();
+  				return;
+  			}
+
+  			let user = arr[0].split("&")[0];
+  			let email = arr[1].substring(0, arr[1].indexOf("%")) + "@" + arr[1].substring(arr[1].indexOf("%")+3);
+  
+  			return {
+    			name: user,
+    			email: email
+  			};
+			};
+
+			body = bodyparser(body);
+
+      console.log("Body.name: ", body.name);
+      console.log("Body.email: ", body.email);
+
+      // using SendGrid's v3 Node.js Library
+			// https://github.com/sendgrid/sendgrid-nodejs
+
+			const msg = {
+			  to: body.email,
+			  from: 'hello@storybyeveryone.com',
+			  subject: 'Welcome to the story by everyone, ' + body.name + '.',
+			  text: 'this is the text',
+			  html: `<div>
+			  <p>Hello, ${body.name}</p>
+			  <p>Thank you for joining the story by everyone.</p>
+			  <p>As I treasure your time and attention, I will send you <strong>only one</strong> more email to let you know when the full website is launched.</p>
+			  <p>Looking forward to sharing my stories with you,</p>
+			  <p>Nuno</p>
+			  </div>`,
+			};
+
+			sgMail.send(msg).then((res)=>console.log(res)).catch((err)=>console.error(err));
+			
+			queries.insert(body.name, body.email);
+
+			response.writeHead(201);
+			response.statusMessage = 'user info added to database';
+		  response.end();
+
+    });
+
 	}
 
 	else if (request.url === '/style.css') {

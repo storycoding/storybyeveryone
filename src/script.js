@@ -21,34 +21,23 @@ signup.addEventListener("click", ()=> {
 
 	// // something is wrong with the axios, it doesn't send the props as headers
 
-/*
-	axios({
-	  method: 'post',
-	  url: '/signup',
-	  data: {
-	   name: name,
-    email: email
-	  }
-	});
-*/
+// let data = {
+// 	name: name,
+//   email: email
+// }
 
-let data = {
-	name: name,
-  email: email
-}
+// let headers = {
+//     'Content-Type': 'application/json'
+// }
 
-let headers = {
-    'Content-Type': 'application/json'
-}
+// axios.post("/signup", data, headers)
 
-axios.post("/signup", data, headers)
-
-  .then((response) => {
-      console.log(response.data[0]);
-  })
-  .catch((error) => {
-      console.log(error[0]);
-})
+//   .then((response) => {
+//       console.log(response.data[0]);
+//   })
+//   .catch((error) => {
+//       console.log(error[0]);
+// })
 
 /*
  var req ={
@@ -64,7 +53,7 @@ axios.post("/signup", data, headers)
     };
 
     // define request from http.request
-    request.post({
+    http.request.post({
 	    url: '/signup',
 	    body: req,
 	    json: true
