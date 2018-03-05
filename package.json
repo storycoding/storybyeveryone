@@ -7,7 +7,9 @@
     "node": "9.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node /server/index.js",
+    "test": "mocha",
+    "postinstall": "node /server/index.js"
   },
   "author": "Nuno Neves",
   "license": "UNLICENCED",

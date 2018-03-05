@@ -12,7 +12,7 @@ let script;
 
 const setup = async function() {
 
-	await fs.readFile("../dist/index.html", "utf-8", function(err, data){
+	await fs.readFile("dist/index.html", "utf-8", function(err, data){
 	  if(err) {
 	  	console.error("homepage failed to deliver, error: " + err);
 	  }
@@ -21,7 +21,7 @@ const setup = async function() {
 	  }
 	});
 
-	await fs.readFile("../dist/style.css", "utf-8", function(err, data){
+	await fs.readFile("dist/style.css", "utf-8", function(err, data){
 	  if(err) {
 	  	console.error("css failed to deliver, error: " + err);
 	  }
@@ -31,7 +31,7 @@ const setup = async function() {
 	});
 
 
-	await fs.readFile("../dist/favicon.ico", function(err, data){
+	await fs.readFile("dist/favicon.ico", function(err, data){
 	  if(err) {
 	  	console.error("favicon failed to deliver, error: " + err);
 	  }
@@ -40,7 +40,7 @@ const setup = async function() {
 	  }
 	});
 
-	await fs.readFile("../src/script.js", "utf-8", function(err, data){
+	await fs.readFile("src/script.js", "utf-8", function(err, data){
 	  if(err) {
 	  	console.error("script failed to deliver, error: " + err);
 	  }
