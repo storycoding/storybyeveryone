@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "node /server/index.js",
-    "preinstall":"psql -f database/schema.sql",
     "postinstall": "node /server/index.js"
   },
   "author": "Nuno Neves",
