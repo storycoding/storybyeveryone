@@ -14,5 +14,5 @@ signup.addEventListener("click", ()=> {
 	let thanks = document.createElement("p");
 	thanks.innerHTML = "Thank you for being a part of this journey, " + name + ".";
 	contact.appendChild(thanks);
-	alert(`Thank you for being a part of this journey,${name}.`);
+	alert(`Thank you for being a part of this journey, ${name}.`);
 });
