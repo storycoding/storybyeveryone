@@ -5,14 +5,14 @@ signup.addEventListener("click", ()=> {
 	const name = document.getElementById("name").value;
 	const email = document.getElementById("email").value;
 
-	let contact = document.getElementById("contact");
+	let newsfeed = document.getElementById("newsfeed");
 
-	while (contact.firstChild) {
-    contact.removeChild(contact.firstChild);
+	while (newsfeed.firstChild) {
+    newsfeed.removeChild(newsfeed.firstChild);
 	}
 
 	let thanks = document.createElement("p");
 	thanks.innerHTML = "Thank you for being a part of this journey, " + name + ".";
-	contact.appendChild(thanks);
+	newsfeed.appendChild(thanks);
 	alert(`Thank you for being a part of this journey, ${name}.`);
 });
