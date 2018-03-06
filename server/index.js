@@ -115,7 +115,13 @@ const requestHandler = (request, response) => {
 
 			sgMail.send(msg).then((res)=>console.log(res)).catch((err)=>console.error(err));
 			
-			queries.insert(body.name, body.email);
+			queries.insert(body.name, body.email).then(()=> console.log(`${name} with ${email} written to database`)).catch((error)=> {
+				console.error(error);
+				response.statusCode = 404;
+		  	response.statusMessage = error;
+		  	response.end();
+  			return;
+				});
 
 			response.writeHead(201);
 			response.statusMessage = 'user info added to database';
