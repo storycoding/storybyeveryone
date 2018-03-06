@@ -21,13 +21,11 @@ signup.addEventListener("click", ()=> {
 	newsfeed.appendChild(thanks);
 
 	let encouragement = document.createElement("p");
-	encouragement.innerHTML = "If you have a word of encoragement, share your good vibes at";
+	encouragement.innerHTML = "If you have a word of encoragement, share your good vibes with";
 	newsfeed.appendChild(encouragement);
 
 	let message = document.createElement("a");
-	message.href="hello@storybyeveryone.com";
+	message.href="mailto:hello@storybyeveryone.com";
 	message.innerHTML="hello@storybyeveryone.com";
-	encouragement.appendChild(message);
-
-	newsfeed.appendChild(encouragement);
+	newsfeed.appendChild(message);
 });
