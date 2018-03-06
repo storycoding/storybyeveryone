@@ -76,7 +76,7 @@ const requestHandler = (request, response) => {
 
     	// hacky, but fast parser
     	const bodyparser = function(string) {
-  			let arr = string.split("=").slice(1); // parsing the form content
+  			let arr = string.split("=").slice(1);
 
   			if(arr.length > 2) {
   				response.statusCode = 404;
@@ -98,9 +98,6 @@ const requestHandler = (request, response) => {
 
       console.log("Body.name: ", body.name);
       console.log("Body.email: ", body.email);
-
-      // using SendGrid's v3 Node.js Library
-			// https://github.com/sendgrid/sendgrid-nodejs
 
 			const msg = {
 			  to: body.email,

@@ -24,38 +24,27 @@
       
 
     <div class="centered" id="contact">
-      <form action="/signup" method="post">
+      <form action="/signup" method="post" target="formActionBreaker">
         <div>
-          <label for="say">What greeting do you want to say?</label>
-          <input name="name" id="name" value="Dude">
+          <label for="say"></label>
+          <input name="name" id="name" value="" placeholder="name" maxlength="24">
         </div>
 
         <div>
-          <label for="email">Who do you want to say it to?</label>
-          <input name="email" value="dude@gmail.com">
+          <label for="email"></label>
+          <input name="email" id="email" value="" placeholder="e-mail" maxlength="24">
         </div>
 
         <div>
-          <button>Send my greetings</button>
+          <button id="signup">join the newsletter</button>
         </div>
       </form>
     </div>
 
-
-      
-      <div class="centered" id="contact">
-        <div>
-          <input type="text" placeholder="name" id="name" maxlength="20">
-        </div>
-        <div>
-          <input type="text" placeholder="e-mail" id="email" maxlength="20">
-        </div> 
-        <button id="signup">join the newsletter</button>
-      </div>
-      
     </div>
   </body>
   <footer>
   	<script src="/script.js"></script>
+    <iframe width="0" height="0" border="0" name="formActionBreaker" id="formActionBreaker" style="display: none"></iframe>
   </footer>
 </html>
