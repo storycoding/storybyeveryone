@@ -19,4 +19,15 @@ signup.addEventListener("click", ()=> {
 	let thanks = document.createElement("p");
 	thanks.innerHTML = "Thank you for being a part of this journey, " + name + ".";
 	newsfeed.appendChild(thanks);
+
+	let encouragement = document.createElement("p");
+	encouragement.innerHTML = "If you have a word of encoragement, share your good vibes at";
+	newsfeed.appendChild(encouragement);
+
+	let message = document.createElement("a");
+	message.href="hello@storybyeveryone.com";
+	message.innerHTML="hello@storybyeveryone.com";
+	encouragement.appendChild(message);
+
+	newsfeed.appendChild(encouragement);
 });
